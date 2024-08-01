@@ -1,0 +1,17 @@
+.black {
+    color: black;
+}
+
+.header-main {
+    display: flex;
+}
+
+button {
+    margin: 10px;
+}
+
+.appointment {
+    margin-right: 100px;
+    margin-bottom: 0;
+    margin-top: 22px;
+}

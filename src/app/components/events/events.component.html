@@ -1,0 +1,28 @@
+<div class="calendar-container">
+    <div class="time-column">
+      <div class="time-slot" *ngFor="let time of times">{{ time }}</div>
+    </div>
+    <div class="calendar-grid" cdkDropListGroup>
+      <div class="calendar-row" *ngFor="let time of times">
+        <div
+          class="calendar-cell"
+          cdkDropList
+          [cdkDropListData]="time"
+          (cdkDropListDropped)="drop($event, $event?.container?.data)">
+          <div
+            class="event"
+            *ngFor="let event of getFilteredEvents(time)"
+            (click)="openViewAppointmentDialog(event)"
+            (keyup.enter)="openViewAppointmentDialog(event)" 
+            (keyup.space)="openViewAppointmentDialog(event)"
+            tabindex="0"
+            cdkDrag
+            [cdkDragData]="event"
+            >
+            {{ event.title }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

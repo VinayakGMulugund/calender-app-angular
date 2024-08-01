@@ -1,0 +1,14 @@
+.date-selector-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .date-picker-field {
+    flex: 1;
+  }
+  
+  .clear-button {
+    height: 56px;
+  }
+  

@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Appointment Details</h2>
+<mat-dialog-content>
+  <p><strong>Title:</strong> {{ data.title }}</p>
+  <p><strong>Time:</strong> {{ convertTimestampToHHMMAMPM(data.time) }}</p>
+  <p><strong>Description:</strong> {{ data.desc }}</p>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+  <button mat-raised-button (click)="deleteAppointment()" >Delete</button>
+</mat-dialog-actions>

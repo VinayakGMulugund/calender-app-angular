@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Add Appointment</h2>
+<mat-dialog-content>
+  <form [formGroup]="appointmentForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="Enter appointment title">
+      <mat-error *ngIf="appointmentForm.get('title').hasError('required')">Title is required.</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="datePicker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+      <mat-error *ngIf="appointmentForm.get('date').hasError('required')">Date is required.</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Time</mat-label>
+      <mat-select formControlName="time">
+        <mat-option *ngFor="let time of times" [value]="time">{{ time }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="appointmentForm.get('time').hasError('required')">Time is required.</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="desc" placeholder="Appointment for ...">
+      <mat-error *ngIf="appointmentForm.get('desc').hasError('required')">Descriptionis required.</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>
